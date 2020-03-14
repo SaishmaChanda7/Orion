@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>orion</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
+    <link rel="stylesheet" href="{% static 'blog/fonts/icomoon/style.css' %}">>
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/jquery-ui.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'blog/css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    
+  </head>
+  <body>
+  
+  <div class="site-wrap">
+    <header class="site-navbar" role="banner">
+      <div class="site-navbar-top">
+        <div class="container">
+          <div class="row align-items-center">
+
+            <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+              <form action="" class="site-block-top-search">
+                <span class="icon icon-search2"></span>
+                <input type="text" class="form-control border-0" placeholder="Search">
+              </form>
+            </div>
+
+            <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+              <div class="site-logo">
+                <a href="index.html" class="js-logo-clone">orion</a>
+              </div>
+            </div>
+            {% if  user.is_authenticated %}
+                <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+                <div class="site-top-icons">
+                <ul>
+                <li ><a href="#"><span class="icon icon-person"></span></a></li>
+                <li>
+                <a href="cart.html" class="site-cart">
+                <span class="icon icon-shopping_cart"></span>
+                <span class="count">2</span>
+                </a>
+                </li> 
+                <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                <li><a href="{% url 'logout'%}">Logout&nbsp&nbsp&nbsp&nbsp</a></li>
+                </ul>
+                </div> 
+                </div>
+            {% else %}
+                <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+                 <div class="container">
+                 
+                 <a href="{% url 'login'%}">Login&nbsp&nbsp&nbsp&nbsp</a>
+            
+            
+                 <a href="{% url 'blog-register'%}">Register</a>
+            
+            
+            
+         
+                 </div>
+                 </div>
+
+            {% endif %}
+          </div>
+        </div>
+      </div> 
+
+      <nav class="site-navigation text-right text-md-center" role="navigation">
+        <div class="container">
+          <ul class="site-menu js-clone-nav d-none d-md-block">
+            <li >
+              <a href="{% url 'blog-home'%}">Home</a>
+            </li>
+            <li >
+              <a href="{% url 'about'%}">About</a>
+              
+            </li>
+            <li><a href="{% url 'shop' %}">Shop</a></li>
+            <li><a href="{% url 'sell'%}">Sell</a></li>
+            
+            
+            <li><a href="{% url 'contact'%}">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+<body>
+
+
+  <div class="container">
+    
+      {% block content%}{% endblock %}
+  </div>
+</body>
+
+
+
+
+    <footer class="site-footer border-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Opening Hours</h3>
+              </div>
+              <div class="col-lg-6">
+                <div class="footer-widget">
+                  <div class="footer-widget-content">
+                  <div class="open-time ">
+                    <ul class="opening-time list-unstyled">
+                    <li><span><i class="fa fa-times"></i></span><p class="clock-time"><strong>monday :</strong> closed</p>
+                    </li>
+                    <li><span><i class="fa fa-check"></i></span><p><strong>tue-fri :</strong> 8am - 12am</p></li>
+                   <li><span><i class="fa fa-check"></i></span><p><strong>sat-sun :</strong> 7am - 1am</p></li>
+                   <li><span><i class="fa fa-check"></i></span><p><strong>holydays :</strong> 12pm-12am</p></li>
+                   </ul>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <h3 class="footer-heading mb-4">Payment Methods</h3>
+            <ul class="payment">
+            <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+            <li><a href="#"><i class="fa fa-credit-card"></i></a></li>            
+            <li><a href="#"><i class="fa fa-paypal"></i></a></li>
+            <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="block-5 mb-5">
+              <h3 class="footer-heading mb-4">Contact Info</h3>
+              <ul class="list-unstyled">
+                <li class="address">203 Fake St. Mountain View, San Francisco, California, USA</li>
+                <li class="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
+                <li class="email">emailaddress@domain.com</li>
+              </ul>
+            </div>
+
+            <div class="block-7">
+              <form action="#" method="post">
+                <label for="email_subscribe" class="footer-heading">Subscribe</label>
+                <div class="form-group">
+                  <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">
+                  <input type="submit" class="btn btn-sm btn-primary" value="Send">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+    </footer>
+  </div>
+  
+  <script src="{% static 'blog/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'blog/js/aos.js' %}"></script>
+  <script src="{% static 'blog/js/main.js' %}"></script>
+  <script src="{% static 'blog/js/script1.js' %}"></script>
+  </body>
+</html>

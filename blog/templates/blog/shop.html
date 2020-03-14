@@ -1,0 +1,29 @@
+
+{% extends "blog/base.html" %}
+
+{% block content%}
+
+
+
+
+<h4>
+{% for item in items %}
+    <div >
+    <div >
+        <img src="{{ item.image }}"  style="width: 100%; float: left; margin-right: 10px;" /> 
+    </div> 
+    
+    <div style="float: right;border: 5px;">
+        <ul>
+        <li>{{item.title}}</li>
+        <li>{{item.minprice}}</li>
+        <li>{{item.category}}</li>
+        <li>{{item.description}}</li>
+        </ul>
+        </div>
+     </div>
+{% endfor %}
+</h4>
+
+
+{% endblock content %}
