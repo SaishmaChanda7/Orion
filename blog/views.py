@@ -8,6 +8,8 @@ from blog.models import Post
 from .forms import UserUpdateForm,ProfileUpdateForm 
 def home(request):
 	return render(request,'blog/home.html')
+def prohome(request):
+	return render(request,'blog/home.html')
 def about(request):
 	return render(request,'blog/about.html')
 def contact(request):
@@ -27,7 +29,7 @@ def  register(request):
 @login_required
 def getmyitems(request):
 	context={
-		'items' : Post.objects.filter(author=request.user)
+		'items' : Post.objects.filter(author=request.user.username)
 	}
 	return render(request,'blog/myitems.html',context)
 @login_required
@@ -61,7 +63,7 @@ def get_name(request):
 	
 	if request.method == 'POST':
 		
-		form = SellForm(request.POST,user=request.user.username)
+		form = SellForm(request.POST,request.FILES,author=request.user.username)
         
 		if form.is_valid():
 			print("in get_name")
@@ -71,7 +73,7 @@ def get_name(request):
 
 	else :
 
-		form=SellForm(user=request.user.username)
+		form=SellForm(author=request.user.username)
 
 	
 	return render(request, 'blog/sell.html', {'form': form})

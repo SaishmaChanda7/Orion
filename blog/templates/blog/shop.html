@@ -8,19 +8,20 @@
 
 <h4>
 {% for item in items %}
-    <div >
-    <div >
-        <img src="{{ item.image }}"  style="width: 100%; float: left; margin-right: 10px;" /> 
-    </div> 
+    <div style="color:black;font-size: 20px;margin: 20px;">
     
-    <div style="float: right;border: 5px;">
-        <ul>
-        <li>{{item.title}}</li>
-        <li>{{item.minprice}}</li>
-        <li>{{item.category}}</li>
-        <li>{{item.description}}</li>
-        </ul>
+        <img src="{{ item.image.url }}" height="200px" width="200px" style="margin-bottom: 20px;" /> 
+   
+         
+        <div>
+
+        PRODUCT TITLE : {{item.title}}<br><br>
+       MINIMUM PRICE : {{item.minprice}}<br><br>
+       CATEGORY : {{item.category}}<br><br>
+        DESCRIPTION : {{item.description}}<br><br>
         </div>
+       
+    
      </div>
 {% endfor %}
 </h4>

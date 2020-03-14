@@ -32,7 +32,7 @@ class SellForm(forms.ModelForm):
 
 
 	def __init__(self, *args, **kwargs):
-		self._user = kwargs.pop('user')
+		self._user = kwargs.pop('author')
 		super(SellForm, self).__init__(*args,**kwargs)
 		
 
